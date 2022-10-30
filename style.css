@@ -57,6 +57,11 @@ label {
     /* margin-bottom: 5px; */
 }
 
+.span-container {
+    min-height: 20px;
+    margin-bottom: 20px;
+}
+
 .wrong {
     color: #FF6347;
     margin-bottom: 25px;
@@ -72,13 +77,23 @@ label {
     border-radius: 20px;
     border: none;
     background-color: #40E0D0;
-    /* background-image: url(./images/bglogin.jpeg); */
     color: white;
     font-size: 18px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     cursor: pointer;
 }
 
-button:hover {
+button:hover:not(:disabled) {
     background-color: #778899;
+}
+
+button:active:not(:disabled) {
+    background-color: #FF6347;
+}
+
+button:disabled {
+    background-color: #778899;
+    box-shadow: none;
+    color: #DCDCDC;
+    cursor: default;
 }
