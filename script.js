@@ -6,12 +6,20 @@ const nameWrong = document.getElementsByClassName('login')[0];
 const passWrong = document.getElementsByClassName('password')[0];
 const loginBtn = document.getElementsByClassName('login-btn')[0];
 
-loginBtn.disabled = true;
+console.dir(passWrong);
+
 
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
+    if(getPassEl.value.length < 6){
+        passWrong.innerText = '* password is too short, please enter min 6 symbols'
+        getPassEl.value = null;
+        loginBtn.disabled = true;
+    }
 
 });
+
+loginBtn.disabled = true;
 
 formEl.addEventListener('keyup', () => {
    if (getNameEl.value || getPassEl.value){
@@ -20,7 +28,13 @@ formEl.addEventListener('keyup', () => {
    if (!getNameEl.value || !getPassEl.value){
     loginBtn.disabled = true;
    }
+   if(getPassEl.value.length >= 6) {
+    passWrong.innerText = null;
+   }
+ 
 });
+
+
 
 
 
