@@ -4,7 +4,6 @@ const getPassEl = document.getElementsByClassName('inputPassword')[0];
 const nameWrong = document.getElementsByClassName('loginError')[0];
 const passWrong = document.getElementsByClassName('passwordError')[0];
 const userWrong = document.getElementsByClassName('userError')[0];
-const passwordWrong = document.getElementsByClassName('passwordError')[0];
 const loginBtn = document.getElementsByClassName('loginBtn')[0];
 const userBase = ['max', 'admin'];
 const passwordBase = ['password123', '12345678'];
@@ -45,9 +44,32 @@ function emailCheck (email) {
     return true;
 };
 
+function userCheck (email) {
+    const emailPart = email.split('@');
+    const user = emailPart[0];
+    let correct;
+    userBase.forEach(el => {
+        if (el === user) {
+            correct = true;
+        }
+    });
+    userWrong.innerText = ''
+    return correct;
+};
+
+function passwordCheck (password) {
+    let correct;
+    passwordBase.forEach(el => {
+        if (el == password) {
+            correct = true;
+        }
+    });
+
+    return correct;
+};
+
 getNameEl.addEventListener('blur', () => {
     emailCheck(getNameEl.value);
-    // console.log(emailCheck(getNameEl.value));
 })
 
 formEl.addEventListener('keyup', () => {
@@ -76,50 +98,26 @@ formEl.addEventListener('keyup', () => {
     }
  });
 
-
-
-function userCheck (email) {
-    const emailPart = email.split('@');
-    const user = emailPart[0];
-    let correct;
-    userBase.forEach(el => {
-        if (el === user) {
-            correct = true;
-        }
-    });
-
-    return correct;
-};
-
-function passwordCheck (password) {
-    let correct;
-    passwordBase.forEach(el => {
-        if (el == password) {
-            correct = true;
-        }
-    });
-
-    return correct;
-};
-
-
-
 formEl.addEventListener('submit', (e) => {
     if(!emailCheck(getNameEl.value)){
         e.preventDefault();
+        getPassEl.value = null;
+        return null;
     };
 
     if(!userCheck(getNameEl.value)){
         e.preventDefault();
+        getPassEl.value = null;
         userWrong.innerText = '* User not found'
+        return null;
     }
 
     if(!passwordCheck(getPassEl.value)){
         e.preventDefault();
-        passwordWrong.innerText = '* wrong password'
+        getPassEl.value = null;
+        userWrong.innerText = '* wrong password';
+        return null
     }
-
-    getPassEl.value = null;
 });
 
 
