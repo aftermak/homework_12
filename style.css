@@ -15,7 +15,7 @@ body {
 .container {
     margin: 50px auto;
     width: 350px;
-    height: 450px;
+    height: 500px;
     background-color: #F8F8FF;
     border-radius: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -26,7 +26,6 @@ body {
     flex-direction: column;
     justify-content: center;
     padding: 30px;
-    
 }
 
 .heading {
@@ -36,7 +35,7 @@ body {
     color: #4682B4;
 }
 
-.input {
+.field {
     margin-bottom: 10px;
     padding: 10px;
     height: 40px;
@@ -54,26 +53,26 @@ body {
 label {
     color: #4682B4;
     font-size: 13px;
-    /* margin-bottom: 5px; */
+    margin-bottom: 5px;
 }
 
 .span-container {
     min-height: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .wrong {
     color: #FF6347;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-size: 12px;
 }
 
-.login-btn {
+.loginBtn {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     width: 230px;
     height: 42px;
-    margin: 40px auto;
+    margin: 10px auto;
     border-radius: 20px;
     border: none;
     background-color: #40E0D0;

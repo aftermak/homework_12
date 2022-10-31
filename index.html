@@ -14,19 +14,28 @@
 </head>
 <body>
     <div class="container">
-        <form class="form" action="">
+        <form class="form" action="https://www.google.com.ua">
             <h2 class="heading">Login</h2>
+
             <label for="uname">Username</label>
-            <input type="text" placeholder="Type your e-mail" name="uname" class="input name">
+            <input type="text" placeholder="Type your e-mail" name="uname" class="field inputName">
+
             <div class="span-container">
-                <span class="login wrong">* wrong name</span>
+                <span class="loginError wrong"></span>
             </div>
+
             <label for="password">Password</label>
-            <input type="text wrong" placeholder="Type your password" name="password" class="input pass">
+            <input type="text wrong" placeholder="Type your password" name="password" class="field inputPassword">
+
             <div class="span-container">
-                <span class="password wrong"></span>
+                <span class="passwordError wrong"></span>
             </div>
-            <button type="submit" class="login-btn">Login</button>
+
+            <div class="span-container">
+                <span class="userError wrong"></span><span class="passwordError wrong"></span>
+            </div>
+      
+            <button type="submit" class="loginBtn">Login</button>
         </form>
     </div>
 </body>
